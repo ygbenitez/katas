@@ -5,6 +5,9 @@
   "Escribir una funcion que acepte una funcion parcial con cantidad de argumentos desconocida,
    retornar una funcion equivalente de n argumentos"
   [f]
+  "definir la funcion parcial para recibir f y los argumentos"
+  (partial
+   (fn [f & args])
   )
 
 
