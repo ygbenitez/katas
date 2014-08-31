@@ -7,7 +7,9 @@
   [f]
   "definir la funcion parcial para recibir f y los argumentos"
   (partial
-   (fn [f & args])
+  (fn [f & args]
+   "con el let voy armando la lista de argumentos para ir llamando en la recurción"
+   (let [g (f (first args))]))
   )
 
 
@@ -15,6 +17,7 @@
   "Dado un numero cualquiera de secuencias, cada una ya ordenada de menor a mayor, encontrar el numero
    mas chico que aparezca en todas las secuencias, las secuencias pueden ser infinitas."
   [& seqs]
+  
   )
 
 
@@ -23,6 +26,7 @@
    retorne una nueva coleccion donde el valor es insertado intercalado cada dos argumentos
    que cumplan el predicado"
   [predicado valor secuencia]
+  
   )
 
 
@@ -33,4 +37,5 @@
    La funcion debe aceptar una secuencia inicial de numeros, y devolver una secuencia infinita de compresiones, donde
    cada nuevo elemento es el elemento anterior comprimido."
   [secuencia]
+  
   )
