@@ -5,11 +5,18 @@
   "Escribir una funcion que acepte una funcion parcial con cantidad de argumentos desconocida,
    retornar una funcion equivalente de n argumentos"
   [f]
-  "definir la funcion parcial para recibir f y los argumentos"
+  ;definir la funcion parcial para recibir f y los argumentos"
   (partial
-  (fn [f & args]
-   "con el let voy armando la lista de argumentos para ir llamando en la recurción"
-   (let [g (f (first args))]))
+   (fn [f & args]
+    ;con el let voy armando la lista de argumentos para ir llamando en la recurción
+    (let [r (f (first args))]
+      ;llamo nuevamente a la funcion definida dentro de unpartial con un parametro
+      (if (fn? r)
+      (recur r (rest args))
+      ;devuelvo r
+      r)))
+   ;devuelvo f
+   f)
   )
 
 
