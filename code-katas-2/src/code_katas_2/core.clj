@@ -24,8 +24,8 @@
   "Dado un numero cualquiera de secuencias, cada una ya ordenada de menor a mayor, encontrar el numero
    mas chico que aparezca en todas las secuencias, las secuencias pueden ser infinitas."
   [& seqs]
-   ;se queda con el primero y lo pongo en la lista f
-	(let [f (map first seqs)])
+   ;se queda con el primero de cada lista y lo pongo en la lista f y me quedo con el minimo de los que estan en f
+	(let [f (map first seqs)m (apply min f)] )
   )
 
 
