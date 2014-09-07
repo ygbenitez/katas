@@ -25,7 +25,9 @@
    mas chico que aparezca en todas las secuencias, las secuencias pueden ser infinitas."
   [& seqs]
    ;se queda con el primero de cada lista y lo pongo en la lista f y me quedo con el minimo de los que estan en f
-	(let [f (map first seqs)m (apply min f)] )
+	(let [f (map first seqs) m (apply min f)] )
+  ;ahora debería hacer la recurción...
+  
   )
 
 
@@ -41,9 +43,15 @@
 (defn tartamudeo
   "Escriba una funcion que retorne una secuencia lazy que comprima el tartamudeo de una secuencia de numeros.
    Comprimir el tartamudeo se refiere a que [1 1 1] se exprese como [3 1] y a su vez [3 1] se exprese como [1 3 1 1].
-
    La funcion debe aceptar una secuencia inicial de numeros, y devolver una secuencia infinita de compresiones, donde
    cada nuevo elemento es el elemento anterior comprimido."
   [secuencia]
-  
+  ;borro y vuelvo a llamar a la funcion
+  (drop 1 (iterate (fn [secuencia]
+  ;Concateno las cadenas                  
+  (mapcat (juxt count first)
+  ;divido la secuencia 
+  (partition-by identity secuencia))) 
+  ;devuelvo la lista 
+   secuencia))
   )
